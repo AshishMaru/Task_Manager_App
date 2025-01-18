@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- NestedScrollView to enable scrolling -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Search View for filtering tasks -->
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:queryHint="Search tasks..."
+                android:iconifiedByDefault="false"
+                android:background="@drawable/edit_text_background" />
+
+            <!-- Task Name EditText -->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etTaskName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/task_name"
+                android:padding="12dp"
+                android:maxLength="20"
+                android:background="@drawable/edit_text_background" />
+
+            <!-- Task Description EditText -->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etTaskDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/task_description"
+                android:padding="12dp"
+                android:maxLines="2"
+                android:maxLength="200"
+                android:background="@drawable/edit_text_background" />
+
+            <!-- Add Task Button -->
+            <Button
+                android:id="@+id/btnAddTask"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/add_task"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp" />
+
+            <!-- RecyclerView for displaying tasks -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
